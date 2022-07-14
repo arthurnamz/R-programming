@@ -1,0 +1,325 @@
+
+# CHALLENGE 1 -------------------------------------------------------------
+
+# 1.1. Run the following code and indicate what the values 
+# are after each statement:
+
+mass <- 47.5            
+# mass = 47.5
+
+age  <- 122
+# age = 122
+
+mass_index <- mass/age
+# mass_index = 0.38944262295082
+
+mass <- mass * 2.0
+# mass = 95
+
+mass_index
+# mass_index = 0.3893443
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 2 -------------------------------------------------------------
+
+# 2.1. What will happen in each of the following examples
+# (hint: use class() to check data type or look at the environment)
+
+num_char <- c(1, 2, 3, "a")
+class(num_char)
+
+num_logical <- c(1, 2, 3, TRUE)
+class(num_logical)
+
+char_logical <- c("a", "b", "c", TRUE)
+class(char_logical)
+
+tricky <- c(1, 2, 3, "4")
+class(tricky)
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 3 -------------------------------------------------------------
+
+# 3.1. Can you figure out why "four" > "five" returns TRUE
+# when you run the following code?
+
+"four" > "five"
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 4 -------------------------------------------------------------
+
+# 4.1. Use the following vector (heights in inches) and create a new vector
+# (called "heights_no_na") with NAs removed.
+
+heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
+
+heights_no_na <- heights[!is.na(heights)]
+heights_no_na
+
+
+# 4.2. Calculate the median (using the median() function) of the new heights_no_na vector.
+median(heights_no_na)
+#median = 64
+
+
+
+# 4.3. How many people in the set are taller than 67 inches?
+# Hint: Use conditional subsetting and the length() function
+
+heights_above_67 <- heights_no_na[heights_no_na >67]
+heights_above_67
+# 69 68 70 69 72 70
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 5 -------------------------------------------------------------
+
+
+# Based on output of str(surveys), answer the following:
+str(surveys)
+
+# 5.1. What is the data structure of the object surveys?  
+
+
+# 5.2. How many rows and columns are in this object?  
+
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 6 -------------------------------------------------------------
+
+# 6.1. Create a `data.frame` (`surveys_200`) containing only the
+#    200th observation of the `surveys` dataset.
+surveys_200 <- ?
+
+# 6.2. Notice how `nrow(surveys)` gave you the number of rows in a `data.frame`?
+#    6.2.1. Use that number to pull out just that last row in the data frame (surveys).
+n_rows <- nrow(surveys)  # get the number of rows in surveys dataset: 34786
+surveys_last <- ?
+
+#    6.2.2. Compare that with what you see as the last row using `tail()` 
+#         to make sure it's meeting expectations.
+tail(surveys, n = 1)  # compare this with previous result
+
+# 6.3. Use `nrow()` to extract the row that is in the middle of the data frame.
+#    Store the content of this row in an object named `surveys_middle`.
+surveys_middle <- ?
+
+# 6.4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
+#   `head(surveys)` keeping just the first through 6th rows of the surveys dataset.
+surveys_head <- ?
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 7 -------------------------------------------------------------
+
+# 7.1. Rename "F" and "M" to "female" and "male", respectively
+
+
+# 7.2. Check that the levels have been renamed
+
+
+# 7.3. Recreate the bar plot such that "undetermined" is last (after "male")
+
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 8 -------------------------------------------------------------
+
+# 8.1. The following code has a few mistakes. Try to fix it. 
+# missing quotes in 'animals' column
+# missing entry in 'feel' column
+# missing one comma in 'weight' column
+
+# Now fix the code:
+animal_data <- data.frame(animal=c(dog, cat, sea cucumber, sea urchin),
+                          feel=c("furry", "squishy", "spiny"),
+                          weight=c(45, 8 1.1, 0.8))
+animal_data
+
+
+# 8.2. Can you predict the class for each of the columns in the following example?
+# Check your guesses using `str(country_climate)`:
+
+country_climate <- data.frame(country=c("Canada", "Panama", "South Africa", "Australia"),
+                              climate=c("cold", "hot", "temperate", "hot/temperate"),
+                              temperature=c(10, 30, 18, "15"),
+                              northern_hemisphere=c(TRUE, TRUE, FALSE, "FALSE"),
+                              has_kangaroo=c(FALSE, FALSE, FALSE, 1))
+
+str(country_climate)
+
+#      8.2.1. Are they what you expected? Why? Why not?
+
+
+#      8.2.2. What would have been different if we had added `stringsAsFactors = FALSE`
+#        to this call?
+
+
+#      8.2.3. What would you need to change to ensure that each column had the
+#        accurate data type?
+
+
+
+# 8.3. How can the code be improved?
+
+
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 9 -------------------------------------------------------------
+
+# Using pipes, subset the survey data to include individuals collected before
+# 1995 and retain only columns "year", "sex", and "weight"
+
+surveys %>%
+  filter(?) %>%
+  select(?)
+
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 10 ------------------------------------------------------------
+
+# Create a new data frame from survey data with the following:
+#       * New column called "hindfoot_half" containing values that are half the hindfoot_length values
+#       * In the hindfoot_half column, there are no NAs and all values are less than 30
+#       * Only keep the species_id and hindfoot_half columns
+
+surveys_hindfoot_half <- ?
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 11 ------------------------------------------------------------
+
+# 11.1. How many individuals were caught in each "plot_type" surveyed?
+
+
+# 11.2. Use group_by() and summarize() to find the mean, min, and max 
+#    hindfoot_length for each species ID (using species_id). Also add
+#    the number of observations (hint: see ?n).
+
+
+# 11.3. What was the heaviest animal measured in each year?
+
+
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 12 ------------------------------------------------------------
+
+# 12.1. Pivot the surveys data frame with `year` as columns, 
+#    `plot_id` as rows, and 
+#    the values are the number of unique genera per plot. 
+#    You will need to summarize before reshaping, and 
+#    use the function `n_distinct` to get the number of unique types of a genera. 
+#    It's a powerful function! See `?n_distinct` for more information.
+
+
+
+# 12.2. Now take that data frame, and gather() it again, 
+#    so each row is a unique `plot_id` by `year` combination
+
+
+
+# 12.3. The `surveys` data set contains two columns of measurement - 
+#    `hindfoot_length` and `weight`.  
+#    This makes it difficult to do things like look at the 
+#    relationship between mean values of each measurement 
+#    per year in different plot types. Let's walk through 
+#    a common solution for this type of problem. 
+
+#    First, use `pivot_longer()` to create a dataset where 
+#    we have a column called `measurement` and a `value` 
+#    column that takes on the value of either `hindfoot_length` 
+#    or `weight`. Hint: You'll need to specify which columns 
+#    are being gathered.
+
+surveys_long <- ?
+
+#    With this new dataset, calculate the average 
+#    of each `measurement` in each `year` for each different 
+#    `plot_type`. Then `spread` them into a data set with 
+#    a column for `hindfoot_length` and `weight`. 
+
+surveys_long %>%
+  group_by(?) %>%
+  summarize(?) %>%
+  pivot_wider(?)
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 13 ------------------------------------------------------------
+
+# Create a scatter plot of weight over genus
+# with the plot_type variable showing in different colors
+
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 14 ------------------------------------------------------------
+
+# 14.1. Boxplots are useful summaries, but hide the *shape* of the distribution.
+# Replace the boxplot with a violin plot to see the shape; see geom_violin()
+
+
+# 14.2. Change the scale of the axis to better distribute observations; see scale_y_log10()
+
+
+# 14.3. Create boxplot for distribution of hindfoot_length for each genus
+
+
+# 14.4. Add color to the datapoints according to the plot from which the sample was
+# taken (plot_id)
+# Hint: check class for plot_id - change from integer to factor
+
+
+
+# 14.5. Why does this change how R makes the graph?
+
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 15 ------------------------------------------------------------
+
+# Create a plot that depicts how the average weight of each genus changes
+# through the years
+
+
+# . -----------------------------------------------------------------------
+
+
+# CHALLENGE 16 ------------------------------------------------------------
+
+# Try to improve one of the plots generated in
+# this exercise or make one of your own
+
+# Some ideas:
+# Change the thickness of the lines
+# Change the name of the legend and the labels
+# Try using a different color palette (http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)
+
+
+# . -----------------------------------------------------------------------
+
+# THE END -----------------------------------------------------------------
+
+
+

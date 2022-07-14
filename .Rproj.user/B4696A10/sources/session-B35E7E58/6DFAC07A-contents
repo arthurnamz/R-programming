@@ -1,0 +1,56 @@
+
+3+5
+ weight_kg=55
+ #weight_kg <- 55
+ #weight_kg -> 55
+ weight_lb <- weight_kg*2.2 # converting kg to lb
+ 
+ weight_lb
+
+ ?round 
+ ??round
+
+round(3.4545, 2)
+round(digits = 2, 3.4545)
+
+weight_g <- c(50, 60, 70,50)  
+weight_g
+
+4!=5
+
+animals <- c("cats", "mouse", "dog")
+animals <- c('cat', 'mouse', 'dog')
+
+length(weight_g)
+length(animals)
+
+class(weight_g)
+class(animals)
+
+str(weight_g)
+str(animals)
+
+animals <- c("cats", "mouse", "dog", "rat")
+animals[2]
+animals[c(2,3,4)]
+animals[c(2:4)]
+
+weight <- c(21,45,76,89,32)
+weight[c(TRUE,FALSE,TRUE,TRUE,FALSE)]
+weight[weight>30 & weight<50]
+weight[weight>30 | weight<50]
+
+x <- list(animals, weight)
+y <- x[1]
+
+heights <- c(23,45,73,68,98)
+
+mean(heights, na.rm = TRUE)
+max(heights, na.rm = TRUE)
+
+height[is.na(heights)]
+
+download.file(url = "https://ndownloader.figshare.com/files/2292169",
+                    destfile = "data/portal_data_joined.csv")
+
+
